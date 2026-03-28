@@ -4,7 +4,7 @@ import USA_Flag from "../../assets/images/USA-flag.png";
 import { useLanguage } from "../../hooks/useLanguage";
 
 const translationIconButtonVariants = cva(
-  "inline-flex items-center justify-center cursor-pointer hover:opacity-50 transition-opacity",
+  "inline-flex items-center justify-center cursor-pointer hover:opacity-50 transition-opacity rounded-full focus:outline-gray-100 focus-visible:outline-gray-100 focus:outline-2 focus-visible:outline-2",
   {
     variants: {
       size: {
