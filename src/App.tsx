@@ -1,17 +1,12 @@
-import Button from "./components/button";
 import Container from "./components/container";
-import Text from "./components/text";
+import Schedule from "./core-components/schedule";
+import SchedulingForm from "./core-components/schedulingForm";
 
 const App = () => {
   return (
-    <Container as="main" className="">
-      <Text variant="body-lg-bold" className="text-gray-100!">
-        HairDay
-      </Text>
-      <Button className="w-full">Teste</Button>
-      <Button className="w-full" disabled>
-        Teste 2
-      </Button>
+    <Container as="main" className="flex flex-col md:flex-row gap-2">
+      <SchedulingForm />
+      <Schedule />
     </Container>
   );
 };
