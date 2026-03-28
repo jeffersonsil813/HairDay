@@ -4,7 +4,7 @@ import USA_Flag from "../../assets/images/USA-flag.png";
 import { useLanguage } from "../../hooks/useLanguage";
 
 const translationIconButtonVariants = cva(
-  "inline-flex items-center justify-center cursor-pointer",
+  "inline-flex items-center justify-center cursor-pointer hover:opacity-50 transition-opacity",
   {
     variants: {
       size: {
@@ -15,7 +15,7 @@ const translationIconButtonVariants = cva(
   },
 );
 
-const translationIconVariants = cva("", {
+const translationIconVariants = cva("transition-opacity", {
   variants: {
     size: {
       sm: "h-10 w-10",
