@@ -1,6 +1,7 @@
 import Container from "./components/container";
 import Schedule from "./core-components/schedule";
 import SchedulingForm from "./core-components/schedulingForm";
+import "./i18n";
 
 const App = () => {
   return (
