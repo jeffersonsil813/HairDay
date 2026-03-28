@@ -1,15 +1,19 @@
 import { cva, type VariantProps } from "class-variance-authority";
 import React from "react";
 
+export const typographyClasses = {
+  "body-sm": "text-sm leading-5 font-normal",
+  "body-md": "text-base leading-6 font-normal",
+  "body-sm-bold": "text-sm leading-5 font-bold",
+  "body-md-bold": "text-base leading-6 font-bold",
+  "body-lg-bold": "text-2xl leading-6 font-bold",
+} as const;
+
+export type TypographyVariant = keyof typeof typographyClasses;
+
 export const textVariants = cva("font-sans text-gray-900", {
   variants: {
-    variant: {
-      "body-sm": "text-sm leading-5 font-normal",
-      "body-md": "text-base leading-6 font-normal",
-      "body-sm-bold": "text-sm leading-5 font-bold",
-      "body-md-bold": "text-base leading-6 font-bold",
-      "body-lg-bold": "text-2xl leading-6 font-bold",
-    },
+    variant: typographyClasses,
   },
   defaultVariants: {
     variant: "body-sm",
