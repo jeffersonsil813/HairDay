@@ -4,6 +4,7 @@ import Container from "../../components/container";
 import InputText from "../../components/input-text";
 import Text from "../../components/text";
 import Header from "./header";
+import InputDate from "../../components/input-date";
 
 const SchedulingForm = () => {
   const { t } = useTranslation();
@@ -28,6 +29,7 @@ const SchedulingForm = () => {
 
         {/* <InputText svg={UserIcon} name="client" /> */}
       </form>
+        {/* <InputDate /> */}
     </Container>
   );
 };
