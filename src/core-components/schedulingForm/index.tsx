@@ -1,5 +1,7 @@
 import { useTranslation } from "react-i18next";
+import UserIcon from "../../assets/icons/UserSquare.svg?react";
 import Container from "../../components/container";
+import InputText from "../../components/input-text";
 import Text from "../../components/text";
 import Header from "./header";
 
@@ -16,9 +18,15 @@ const SchedulingForm = () => {
 
       <form>
         <div className="flex flex-col space-y-1">
-          <Text variant="body-lg-bold" className="text-gray-100!">{t("form.title")}</Text>
-          <Text as="p" className="text-gray-300!">{t("form.subtitle")}</Text>
+          <Text variant="body-lg-bold" className="text-gray-100!">
+            {t("form.title")}
+          </Text>
+          <Text as="p" className="text-gray-300!">
+            {t("form.subtitle")}
+          </Text>
         </div>
+
+        {/* <InputText svg={UserIcon} name="client" /> */}
       </form>
     </Container>
   );
