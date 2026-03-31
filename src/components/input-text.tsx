@@ -71,7 +71,6 @@ const InputText = ({
       <input
         {...props}
         type="text"
-        placeholder="teste"
         className={cx(
           inputTextVariants({ variant, size, className }),
           typographyClasses[typography],
