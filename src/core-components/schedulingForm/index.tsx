@@ -7,7 +7,7 @@ import InputDate from "../../components/input-date";
 import InputText from "../../components/input-text";
 import Text from "../../components/text";
 import { useSchedule } from "../../hooks/useSchedule";
-import type { SCHEDULE } from "../../models/schedule";
+import type { Schedule } from "../../models/schedule";
 import Header from "./header";
 import TimeSlotRadioGroup from "./timeSlotRadioGroup";
 
@@ -39,8 +39,8 @@ const SchedulingForm = () => {
 
   const handleSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const schedule: Omit<SCHEDULE, "id"> = {
-      datetime: `${date}T${time}`,
+    const schedule: Omit<Schedule, "id"> = {
+      dateTime: `${date}T${time}`,
       client,
     };
 

@@ -4,6 +4,7 @@ import Container from "../../components/container";
 import InputDate from "../../components/input-date";
 import Text from "../../components/text";
 import { getCurrentDate } from "../../utils/date";
+import SchedulesList from "./schedulesList";
 
 const Schedules = () => {
   const { t } = useTranslation();
@@ -14,8 +15,8 @@ const Schedules = () => {
   };
 
   return (
-    <Container size="md" className="w-full gap-8">
-      <div className="flex gap-3">
+    <Container size="md" className="w-full flex flex-col gap-8">
+      <div className="flex flex-wrap gap-3">
         <div className="flex flex-col gap-1 flex-1">
           <Text variant="body-lg-bold" className="text-gray-100!">
             {t("schedule.title")}
@@ -24,6 +25,8 @@ const Schedules = () => {
         </div>
         <InputDate defaultValue={date} onChange={handleChangeDate} />
       </div>
+
+      <SchedulesList scheduleDate={date} />
     </Container>
   );
 };

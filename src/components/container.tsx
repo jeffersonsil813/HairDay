@@ -5,7 +5,7 @@ export const containerVariants = cva("mx-auto", {
   variants: {
     size: {
       lg: "max-w-360 p-3",
-      md: "max-w-226.5 px-28 py-20",
+      md: "max-w-226.5 px-4 md:px-28 py-20",
       sm: "max-w-124.5 p-20",
     },
   },
