@@ -1,7 +1,7 @@
 import { cva } from "class-variance-authority";
-import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import Text from "../../components/text";
+import type { ChangeEvent } from "react";
 
 interface Period {
   label: string;
@@ -36,9 +36,14 @@ const slotTextVariants = cva("transition-colors", {
   defaultVariants: { available: true, selected: false },
 });
 
-const TimeSlotRadioGroup = () => {
+interface TimeSlotRadioGroupProps {
+  disabled?: boolean;
+  handleChangeTime: (e: ChangeEvent<HTMLInputElement>) => void;
+  selectedTime: string;
+}
+
+const TimeSlotRadioGroup = ({ disabled, handleChangeTime, selectedTime }: TimeSlotRadioGroupProps) => {
   const { t } = useTranslation();
-  const [selected, setSelected] = useState<string | null>(null);
 
   const periods: Period[] = [
     {
@@ -71,23 +76,23 @@ const TimeSlotRadioGroup = () => {
               <label
                 key={slot}
                 className={slotVariants({
-                  available: true,
-                  selected: selected === slot,
+                  available: !disabled,
+                  selected: selectedTime === slot,
                 })}
               >
                 <input
                   type="radio"
                   name="time-slot"
                   value={slot}
-                  checked={selected === slot}
-                  onChange={() => setSelected(slot)}
+                  checked={selectedTime === slot}
+                  onChange={handleChangeTime}
                   className="sr-only"
                 />
                 <Text
                   variant="body-md"
                   className={slotTextVariants({
-                    available: true,
-                    selected: selected === slot,
+                    available: !disabled,
+                    selected: selectedTime === slot,
                   })}
                 >
                   {slot}
