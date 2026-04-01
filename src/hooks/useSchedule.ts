@@ -1,13 +1,13 @@
 import { useLocalStorage } from 'usehooks-ts';
-import { SCHEDULE_KEY, type SCHEDULE } from "../models/schedule";
+import { SCHEDULE_KEY, type Schedule } from "../models/schedule";
 
 export const useSchedule = () => {
-  const [schedules, setSchedules] = useLocalStorage<SCHEDULE[]>(
+  const [schedules, setSchedules] = useLocalStorage<Schedule[]>(
     SCHEDULE_KEY,
     [],
   );
 
-  const createSchedule = (newSchedule: Omit<SCHEDULE, "id">) => {
+  const createSchedule = (newSchedule: Omit<Schedule, "id">) => {
     setSchedules([
       ...schedules,
       { ...newSchedule, id: Math.random().toString(36).slice(2, 9) },
