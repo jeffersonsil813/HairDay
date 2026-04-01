@@ -70,7 +70,7 @@ const SchedulingForm = () => {
           <Text variant="body-md-bold" className="text-gray-200!">
             {t("form.labels.date")}
           </Text>
-          <InputDate required onChange={handleChangeDate} />
+          <InputDate required onChange={handleChangeDate} value={date} />
         </div>
 
         <TimeSlotRadioGroup
@@ -90,6 +90,7 @@ const SchedulingForm = () => {
             required
             disabled={!date || !time}
             onChange={handleChangeClient}
+            value={client}
           />
         </div>
 
