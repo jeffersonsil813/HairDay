@@ -1,4 +1,4 @@
-import useLocalStorage from "use-local-storage";
+import { useLocalStorage } from 'usehooks-ts';
 import { SCHEDULE_KEY, type SCHEDULE } from "../models/schedule";
 
 export const useSchedule = () => {
