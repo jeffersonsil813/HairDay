@@ -16,7 +16,7 @@ const Schedules = () => {
 
   return (
     <Container size="md" className="w-full flex flex-col gap-8">
-      <div className="flex flex-wrap gap-3">
+      <div className="flex flex-col lg:flex-row gap-3">
         <div className="flex flex-col gap-1 flex-1">
           <Text variant="body-lg-bold" className="text-gray-100!">
             {t("schedule.title")}
