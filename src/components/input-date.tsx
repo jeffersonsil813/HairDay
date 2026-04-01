@@ -1,7 +1,7 @@
 import { cva, cx, type VariantProps } from "class-variance-authority";
 import CalendarIcon from "../assets/icons/CalendarBlank.svg?react";
 import CaretDown from "../assets/icons/CaretDown.svg?react";
-import { getCurrentDate } from "../utils/getCurrentDate";
+import { getCurrentDate } from "../utils/date";
 import Icon from "./icon";
 import { typographyClasses, type TypographyVariant } from "./text";
 

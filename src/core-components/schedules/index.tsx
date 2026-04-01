@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import Container from "../../components/container";
 import InputDate from "../../components/input-date";
 import Text from "../../components/text";
-import { getCurrentDate } from "../../utils/getCurrentDate";
+import { getCurrentDate } from "../../utils/date";
 
 const Schedules = () => {
   const { t } = useTranslation();
