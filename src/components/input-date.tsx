@@ -79,6 +79,9 @@ const InputDate = ({
   typography = "body-md",
   ...props
 }: InputDateProps) => {
+  const today = new Date();
+  const localDate = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")}`;
+
   return (
     <label className={inputDateLabelVariants({ variant, size })}>
       <Icon
@@ -88,7 +91,7 @@ const InputDate = ({
       <input
         {...props}
         type="date"
-        min={new Date().toISOString().split("T")[0]}
+        min={localDate}
         className={cx(
           inputDateTextVariants({ variant }),
           typographyClasses[typography],
