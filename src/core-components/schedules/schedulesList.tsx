@@ -2,14 +2,14 @@ import { useTranslation } from "react-i18next";
 import AfternoonIcon from "../../assets/icons/CloudSun.svg?react";
 import NightIcon from "../../assets/icons/MoonStars.svg?react";
 import MorningIcon from "../../assets/icons/SunHorizon.svg?react";
+import TrashIcon from "../../assets/icons/Trash.svg?react";
+import ButtonIcon from "../../components/button-icon";
 import Icon from "../../components/icon";
 import Text from "../../components/text";
+import { useSchedule } from "../../hooks/useSchedule";
 import { useSchedules } from "../../hooks/useSchedules";
 import type { Schedule } from "../../models/schedule";
 import { getHourFromDateTime } from "../../utils/date";
-import ButtonIcon from "../../components/button-icon";
-import TrashIcon from "../../assets/icons/Trash.svg?react";
-import { useSchedule } from "../../hooks/useSchedule";
 
 interface SchedulesPerPeriod {
   periodIcon: React.FC<React.ComponentProps<"svg">>;
@@ -64,29 +64,30 @@ const SchedulesList = ({ scheduleDate }: SchedulesListProps) => {
                 {period}
               </Text>
             </div>
-            {schedulesData.length > 0 ? (
-              schedulesData.map(({ id: scheduleId, dateTime, client }) => (
-                <div key={scheduleId} className="flex p-6 gap-5">
-                  <Text variant="body-md-bold" className="text-gray-200!">
-                    {getHourFromDateTime(dateTime)}
-                  </Text>
-                  <Text variant="body-md" className="text-gray-200!">
-                    {client}
-                  </Text>
-                  <ButtonIcon
-                    svg={TrashIcon}
-                    onClick={() => handleDeleteSchedule(scheduleId)}
-                    className="ml-auto"
-                  />
-                </div>
-              ))
-            ) : (
-              <div className="flex p-6 gap-5">
+
+            <div className="flex flex-col gap-0.5 p-5">
+              {schedulesData.length > 0 ? (
+                schedulesData.map(({ id: scheduleId, dateTime, client }) => (
+                  <div key={scheduleId} className="flex py-1 gap-5">
+                    <Text variant="body-md-bold" className="text-gray-200!">
+                      {getHourFromDateTime(dateTime)}
+                    </Text>
+                    <Text variant="body-md" className="text-gray-200!">
+                      {client}
+                    </Text>
+                    <ButtonIcon
+                      svg={TrashIcon}
+                      onClick={() => handleDeleteSchedule(scheduleId)}
+                      className="ml-auto"
+                    />
+                  </div>
+                ))
+              ) : (
                 <Text className="text-gray-300!">
                   {t("schedule.empty_state")}
                 </Text>
-              </div>
-            )}
+              )}
+            </div>
           </div>
         ),
       )}
