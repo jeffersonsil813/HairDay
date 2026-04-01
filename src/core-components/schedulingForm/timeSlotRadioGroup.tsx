@@ -2,6 +2,7 @@ import { cva } from "class-variance-authority";
 import { useTranslation } from "react-i18next";
 import Text from "../../components/text";
 import type { ChangeEvent } from "react";
+import { useSchedules } from "../../hooks/useSchedules";
 
 interface Period {
   label: string;
@@ -40,10 +41,12 @@ interface TimeSlotRadioGroupProps {
   disabled?: boolean;
   handleChangeTime: (e: ChangeEvent<HTMLInputElement>) => void;
   selectedTime: string;
+  selectedDate: string;
 }
 
-const TimeSlotRadioGroup = ({ disabled, handleChangeTime, selectedTime }: TimeSlotRadioGroupProps) => {
+const TimeSlotRadioGroup = ({ disabled, handleChangeTime, selectedTime, selectedDate }: TimeSlotRadioGroupProps) => {
   const { t } = useTranslation();
+  const { isTimeSlotAvailable } = useSchedules();
 
   const periods: Period[] = [
     {
@@ -76,7 +79,7 @@ const TimeSlotRadioGroup = ({ disabled, handleChangeTime, selectedTime }: TimeSl
               <label
                 key={slot}
                 className={slotVariants({
-                  available: !disabled,
+                  available: !disabled && isTimeSlotAvailable(selectedDate, slot),
                   selected: selectedTime === slot,
                 })}
               >

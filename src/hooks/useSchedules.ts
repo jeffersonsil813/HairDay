@@ -34,5 +34,10 @@ export const useSchedules = () => {
     };
   };
 
-  return { schedules, getSchedulesByDate };
+  const isTimeSlotAvailable = (date: string, time: string) => {
+    const target = `${date}T${time}`;
+    return !schedules.some(({ dateTime }) => dateTime.startsWith(target));
+  };
+
+  return { schedules, getSchedulesByDate, isTimeSlotAvailable };
 };

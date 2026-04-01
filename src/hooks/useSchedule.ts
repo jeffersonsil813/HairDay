@@ -1,4 +1,4 @@
-import { useLocalStorage } from 'usehooks-ts';
+import { useLocalStorage } from "usehooks-ts";
 import { SCHEDULE_KEY, type Schedule } from "../models/schedule";
 
 export const useSchedule = () => {
@@ -8,10 +8,12 @@ export const useSchedule = () => {
   );
 
   const createSchedule = (newSchedule: Omit<Schedule, "id">) => {
-    setSchedules([
-      ...schedules,
-      { ...newSchedule, id: Math.random().toString(36).slice(2, 9) },
-    ]);
+    if (!schedules.some(({ dateTime }) => dateTime === newSchedule.dateTime)) {
+      setSchedules([
+        ...schedules,
+        { ...newSchedule, id: Math.random().toString(36).slice(2, 9) },
+      ]);
+    }
   };
 
   const deleteSchedule = (id: string) => {

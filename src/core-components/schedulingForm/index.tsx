@@ -77,6 +77,7 @@ const SchedulingForm = () => {
           disabled={!date}
           handleChangeTime={handleChangeTime}
           selectedTime={time}
+          selectedDate={date}
         />
 
         <div className="flex flex-col gap-2">
