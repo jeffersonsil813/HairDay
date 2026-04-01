@@ -7,7 +7,7 @@ export const inputTextLabelVariants = cva(
   {
     variants: {
       variant: {
-        primary: "border-gray-500 focus:border-yellow-dark",
+        primary: "border-gray-500 focus-within:border-yellow-dark",
       },
       size: {
         md: "h-12 p-3",
