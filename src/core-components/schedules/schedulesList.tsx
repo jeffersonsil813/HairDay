@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import AfternoonIcon from "../../assets/icons/CloudSun.svg?react";
 import NightIcon from "../../assets/icons/MoonStars.svg?react";
@@ -52,6 +53,8 @@ const SchedulesList = ({ scheduleDate }: SchedulesListProps) => {
     },
   ];
 
+  const AnimatedButtonIcon = motion(ButtonIcon);
+
   return (
     <div className="flex flex-col gap-3">
       {schedulesPerPeriod.map(
@@ -75,10 +78,13 @@ const SchedulesList = ({ scheduleDate }: SchedulesListProps) => {
                     <Text variant="body-md" className="text-gray-200!">
                       {client}
                     </Text>
-                    <ButtonIcon
+                    <AnimatedButtonIcon
                       svg={TrashIcon}
                       onClick={() => handleDeleteSchedule(scheduleId)}
                       className="ml-auto"
+                      animate={{ rotate: 0 }}
+                      whileHover={{ rotate: [0, -10, 10, -6, 6, 0] }}
+                      transition={{ duration: 0.4 }}
                     />
                   </div>
                 ))
