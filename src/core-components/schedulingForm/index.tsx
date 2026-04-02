@@ -92,6 +92,7 @@ const SchedulingForm = () => {
             disabled={!date || !time}
             onChange={handleChangeClient}
             value={client}
+            autoComplete="off"
           />
         </div>
 
